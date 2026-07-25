@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Doctor Sahiba 🩺🐼💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #feada6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            padding: 15px;
+        }
+
+        /* Fixed Side Badge */
+        .side-badge {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid #ff4b6e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            color: #d81b60;
+            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(255, 75, 110, 0.25);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Background Floating Pandas & Hearts */
+        .bg-panda {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.85);
+            animation: float 5s infinite linear;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(105vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Card Container */
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 25px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.3);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            border: 3px solid #ff4b6e;
+            position: relative;
+            z-index: 10;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #d81b60;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #444;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Password Styling */
+        .pass-input {
+            width: 80%;
+            padding: 12px 18px;
+            margin-top: 15px;
+            border: 2px solid #ff4b6e;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 15px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .error-msg {
+            color: #d50000;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            display: none;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            min-height: 60px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff4b6e, #ff758c);
+            color: white;
+            padding: 10px 26px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 110, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+        .btn-no {
+            background: linear-gradient(45deg, #757575, #9e9e9e);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            transition: all 0.2s ease-out;
+        }
+
+        /* Crying Panda & Baby Message Box */
+        .no-msg-box {
+            display: none;
+            background: #fff0f3;
+            color: #d50000;
+            padding: 10px 14px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 15px;
+            border: 2px dashed #ff4b6e;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Slide Styles */
+        .slide {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active-slide {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-box {
+            background: #fff5f7;
+            border: 2px dashed #ff4b6e;
+            padding: 18px;
+            border-radius: 18px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .nav-btn-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-sub {
+            background: #fff0f3;
+            color: #d81b60;
+            border: 1px solid #ff4b6e;
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .forever-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            color: #ff1744;
+            margin-top: 8px;
+        }
+
+        .screen { display: none; width: 100%; }
+        .active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Side Badge -->
+    <div class="side-badge">Doctor Sahiba 🩺🐼</div>
+
+    <!-- Floating Pandas Background -->
+    <div id="pandasContainer"></div>
+
+    <div class="card">
+
+        <!-- SCREEN 0: PASSWORD -->
+        <div id="screen-password" class="screen active">
+            <h1>Passcode 🔐</h1>
+            <p style="font-weight: 600; color: #ff4b6e; margin-top: 5px;">Doctor Sahiba 🩺🐼</p>
+            
+            <input type="password" id="passInput" class="pass-input" placeholder="Password daalo...">
+            <div id="errorMsg" class="error-msg">Galat Password! 😜</div>
+            
+            <br>
+            <button class="btn" style="margin-top: 15px;" onclick="checkPassword()">Unlock 🔓</button>
+        </div>
+
+        <!-- SCREEN 1: PROPOSAL -->
+        <div id="screen-proposal" class="screen">
+            <h1>Doctor Sahiba... 🥺❤️</h1>
+            <p style="font-size: 16px; font-weight: 700; color: #ff4b6e; margin-top: 10px;">
+                Do You Love Me, My Doctor Sahiba? 🥺👉👈
+            </p>
+
+            <div id="noMsgBox" class="no-msg-box"></div>
+
+            <div class="btn-container" id="btnArea">
+                <button class="btn" id="yesBtn" onclick="sayYes()">Yes! 💖</button>
+                <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 💔</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: 4 SLIDES OF LOVE -->
+        <div id="screen-slides" class="screen">
+            
+            <!-- SLIDE 1: Why Important -->
+            <div id="slide-1" class="slide active-slide">
+                <h1>Why You Are Important 💖</h1>
+                <div class="slide-box">
+                    <p style="font-size: 28px; margin-bottom: 8px;">🐼🩺✨</p>
+                    <p style="font-weight: 600; color: #d81b60; font-size: 15px;">
+                        Doctor Sahiba, aap meri life ki sabse khoobsurat gift ho! 
+                    </p>
+                    <p style="margin-top: 8px;">
+                        Aapki ek choti si smile mera poora din banati hai. Aap jab bhi mere saath hoti ho, har pal special ban jata hai! 🌸
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Compliments / Tareef -->
+            <div id="slide-2" class="slide">
+                <h1>Aapki Tareef 👑🩺</h1>
+                <div class="slide-box">
+                    <p style="font-size: 28px; margin-bottom: 8px;">🐼🥰💉</p>
+                    <p style="font-weight: 600; color: #d81b60; font-size: 15px;">
+                        Mera Dhyan Rakhne Wali Pyari Doctor Sahiba...
+                    </p>
+                    <p style="margin-top: 8px;">
+                        Aap jitni cute ho, utni hi caring ho! Aapka gussa, aapki baatein, aapka care karne ka tareeka... Sab kuch mujhe bohot pyara lagta hai! ❤️
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Special Message -->
+            <div id="slide-3" class="slide">
+                <h1>Special Message 💌</h1>
+                <div class="slide-box">
+                    <p style="font-size: 28px; margin-bottom: 8px;">🥺💖👶</p>
+                    <p style="font-weight: 600; color: #d81b60; font-size: 15px;">
+                        My Sweet Doctor Sahiba 🐼
+                    </p>
+                    <p style="margin-top: 8px;">
+                        Main aapko hamesha aise hi khush dekhna chahta hoon. Aap mere dil ke sabse paas ho aur hamesha rahogi! Promise! 🤞💕
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Finale -->
+            <div id="slide-4" class="slide">
+                <h1>Always & Forever 💕</h1>
+                
+                <div class="slide-box">
+                    <p style="font-size: 45px; margin-bottom: 10px;">🐼💖🩺</p>
+                    <div class="forever-text">
+                        I LOVE YOU SO MUCH!
+                    </div>
+                </div>
+
+                <p style="color: #666; font-size: 13px; margin-top: 10px;">~ My Pyari Doctor Sahiba 🩺 ~</p>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-btn-container">
+                <button class="btn-sub" id="prevBtn" onclick="prevSlide()" style="visibility: hidden;">◀ Back</button>
+                <button class="btn" id="nextBtn" style="padding: 6px 18px; font-size: 13px;" onclick="nextSlide()">Next 💖 ▶</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const SECRET_PASSWORD = "nikhil"; 
+
+        function checkPassword() {
+            const userPass = document.getElementById('passInput').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (userPass === SECRET_PASSWORD.toLowerCase()) {
+                document.getElementById('screen-password').classList.remove('active');
+                document.getElementById('screen-proposal').classList.add('active');
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        document.getElementById('passInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        // Floating Pandas Background Logic
+        function createPandas() {
+            const container = document.getElementById('pandasContainer');
+            const icons = ['🐼', '💖', '🩺', '✨', '🐼', '🌸', '🥺', '🐼', '💗'];
+            for(let i = 0; i < 35; i++) {
+                let p = document.createElement('div');
+                p.className = 'bg-panda';
+                p.innerText = icons[Math.floor(Math.random() * icons.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                p.style.animationDelay = Math.random() * 4 + 's';
+                p.style.fontSize = (Math.random() * 16 + 14) + 'px';
+                container.appendChild(p);
+            }
+        }
+        createPandas();
+
+        // NO Button Floating & Cute Crying Messages Logic
+        let noClickCount = 0;
+        const noMessages = [
+            "Baby mujhe NO mat bolo, I Love You! 🥺🐼",
+            "Aise mat karo na Doctor Sahiba! 😭💔",
+            "Maan jao na please... 🥺👶",
+            "Doctor Sahiba ho ke dil todogi? 🩺😭",
+            "No option invalid hai! Bas YES bolo! 😤❤️"
+        ];
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            const noMsgBox = document.getElementById('noMsgBox');
+
+            // Float / Move button
+            const x = Math.random() * (window.innerWidth < 400 ? 120 : 180) - 60;
+            const y = Math.random() * 100 - 50;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+            // Display Crying Message
+            noMsgBox.style.display = 'block';
+            noMsgBox.innerText = noMessages[noClickCount % noMessages.length];
+            noClickCount++;
+
+            // Make Yes Button Bigger
+            let currentScale = 1 + (noClickCount * 0.12);
+            if (currentScale < 1.8) {
+                yesBtn.style.transform = `scale(${currentScale})`;
+            }
+        }
+
+        function sayYes() {
+            document.getElementById('screen-proposal').classList.remove('active');
+            document.getElementById('screen-slides').classList.add('active');
+        }
+
+        // Slides Logic
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function updateSlideUI() {
+            for(let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.remove('active-slide');
+            }
+            document.getElementById(`slide-${currentSlide}`).classList.add('active-slide');
+
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            prevBtn.style.visibility = (currentSlide === 1) ? 'hidden' : 'visible';
+
+            if(currentSlide === totalSlides) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'block';
+            }
+        }
+
+        function nextSlide() {
+            if(currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideUI();
+            }
+        }
+
+        function prevSlide() {
+            if(currentSlide > 1) {
+                currentSlide--;
+                updateSlideUI();
+            }
+        }
+    </script>
+</body>
+</html>
